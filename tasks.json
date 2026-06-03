@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1780503856270-hjvda7",
+    "title": "paper",
+    "description": "study for exam",
+    "dueDate": "2026-06-09",
+    "completed": false,
+    "createdAt": "2026-06-03T16:24:16.270Z"
+  },
+  {
+    "id": "1780503928618-0f94rn",
+    "title": "horney's task",
+    "description": "make a production grade todo list",
+    "dueDate": "2026-06-10",
+    "completed": false,
+    "createdAt": "2026-06-03T16:25:28.618Z"
+  },
+  {
+    "id": "1780504097984-lbc0ex",
+    "title": "due",
+    "description": "",
+    "dueDate": "2026-06-02",
+    "completed": true,
+    "createdAt": "2026-06-03T16:28:17.984Z"
+  }
+]
