@@ -8,6 +8,7 @@ const FILTERS = [
 ];
 
 const SORT_OPTIONS = [
+  { key: 'none', label: 'None' },
   { key: 'created-newest', label: 'Created: newest first' },
   { key: 'created-oldest', label: 'Created: oldest first' },
   { key: 'due-soonest', label: 'Due date: soonest first' },
@@ -43,7 +44,7 @@ function App() {
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [filter, setFilter] = useState('all');
-  const [sortKey, setSortKey] = useState('created-newest');
+  const [sortKey, setSortKey] = useState('none');
   const [search, setSearch] = useState('');
   const [editingId, setEditingId] = useState(null);
   const [editValues, setEditValues] = useState({ title: '', description: '', dueDate: '' });
