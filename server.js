@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs').promises;
+const fsSync = require('fs');
 const path = require('path');
 const cors = require('cors');
 
@@ -116,10 +117,15 @@ app.delete('/api/tasks/:id', async (req, res) => {
   res.status(204).end();
 });
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-});
+const clientIndex = path.join(__dirname, 'client', 'dist', 'index.html');
+if (fsSync.existsSync(clientIndex)) {
+  app.use(express.static(path.join(__dirname, 'client', 'dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(clientIndex);
+  });
+} else {
+  console.log('No client/dist/index.html found — static frontend will not be served by this instance.');
+}
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

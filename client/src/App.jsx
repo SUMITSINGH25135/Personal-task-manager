@@ -2,6 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import BackgroundScene from './BackgroundScene';
 import './App.css';
 
+// Base URL for API in production. Set VITE_API_URL in Vercel to your Render service URL
+const API_BASE = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_URL
+  ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
+  : '';
+
 const FILTERS = [
   { key: 'all', label: 'All' },
   { key: 'active', label: 'Active' },
@@ -31,7 +36,8 @@ function isOverdue(task) {
 }
 
 async function request(url, options) {
-  const response = await fetch(url, options);
+  const fullUrl = url.startsWith('http') ? url : `${API_BASE}${url}`;
+  const response = await fetch(fullUrl, options);
   if (!response.ok) {
     const body = await response.json().catch(() => ({}));
     throw new Error(body.error || 'Request failed');
