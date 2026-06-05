@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import BackgroundScene from './BackgroundScene';
 import './App.css';
 
 const FILTERS = [
@@ -266,7 +267,9 @@ function App() {
   }
 
   return (
-    <div className="app-shell">
+    <div className="page-shell">
+      <BackgroundScene />
+      <div className="app-shell">
       <header className="hero">
         <div>
           <p className="eyebrow">Task Manager</p>
@@ -419,6 +422,7 @@ function App() {
           </ul>
         )}
       </section>
+    </div>
     </div>
   );
 }
