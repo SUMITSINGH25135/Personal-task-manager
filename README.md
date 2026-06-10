@@ -1,6 +1,7 @@
 # Personal Task Manager
 
 A simple full-stack task manager built with Express, Node.js, and React (Vite).
+live deploy site https://personal-task-manager-497s.vercel.app/
 
 ## Features
 
